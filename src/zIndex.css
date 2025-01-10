@@ -1,0 +1,17 @@
+/* z-index：底图0，路线1，车辆2，城市3 */
+.app .map {
+  z-index: 0;
+}
+
+.app .line {
+  z-index: 1;
+}
+
+.app .station,
+.app .station-name {
+  z-index: 3;
+}
+
+.app .train {
+  z-index: 3;
+}
