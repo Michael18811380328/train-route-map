@@ -1,7 +1,6 @@
-import { trains } from '../data'
 import Train from './Train'
 
-const Trains = ({ time }) => {
+const Trains = ({ time, trains }) => {
   return (
     <div className="trains">
       {trains.map(train => (

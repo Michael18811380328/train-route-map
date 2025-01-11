@@ -13,23 +13,60 @@
   flex-direction: column;
 }
 
+.app .settings,
+.app .map-name {
+  z-index: 1;
+  background-color: #fff;
+  position: fixed;
+  left: 50%;
+}
+
+.app .map-name {
+  top: 0;
+}
+
+.app .settings {
+  bottom: 0;
+}
+
 .app .map {
   width: 1000px;
   height: 600px;
-  border: 1px solid black;
   padding: 10px;
+  margin: 10px;
   position: relative;
 }
 
+.app .station {
+  border-radius: 50%;
+  position: absolute;
+  background-color: #999;
+}
+
 .app .station-name {
+  width: auto;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 13px;
 }
 
-.app .train {
+.app .line {
   position: absolute;
+  height: 2px;
+  border-radius: 2px;
+}
+
+.app .train {
   transition: top 1s, left 1s;
   font-size: 12px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #666;
+  border-radius: 5px;
+  background-color: #fff;
 }
