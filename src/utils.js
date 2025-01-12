@@ -45,7 +45,7 @@ const calculateTrains = (trains) => {
       if (t >= train.times[nextIndex]) {
         preIndex++;
         nextIndex++;
-      }
+      }      
       let { x: x1, y: y1 } = train.stations[preIndex];
       let { x: x2, y: y2 } = train.stations[nextIndex];
       let x = x1 + (x2 - x1) * ((t - train.times[preIndex]) / (train.times[nextIndex] - train.times[preIndex] ));
