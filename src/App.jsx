@@ -3,12 +3,13 @@ import cookie from 'react-cookies'
 import Stations from './components/Stations';
 import Routes from './components/Routes';
 import Trains from './components/Trains';
-import { beijingData, tianjinData, shijiazhuangData, jinanData } from './store/data';
+import { beijingData, tianjinData, shijiazhuangData, jinanData, haerbinData } from './store/data';
+import mapImage from '/media/map.jpg';
 
 import './App.css'
 import './zIndex.css'
 
-const defaultData = beijingData;
+const defaultData = haerbinData;
 
 function App() {
 
@@ -16,7 +17,13 @@ function App() {
 
   let timer = useRef(null);
 
+  const startMusic = useCallback(() => {
+    let audio = document.querySelector('audio');
+    audio.play();
+  }, []);
+
   const start = useCallback(() => {
+    startMusic();
     if (!timer.current) {
       timer.current = setInterval(() => {
         setTime(prevTime => (prevTime + 1));
@@ -40,7 +47,8 @@ function App() {
     const rect = event.target.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
-    console.log("Click map:", x, y);
+    const clickPoint = `x: ${x}, y: ${y}`;
+    console.log(clickPoint);
   }, []);
 
   const zoomIn = useCallback(() => {
@@ -62,14 +70,20 @@ function App() {
 
   return (
     <div className="app">
-      <h2 className="map-name">{defaultData.name}</h2>
+      <div className="map-name">
+        <h2>{'火车路线模拟图'}</h2>
+        <p>{'版本: 0.4'}</p>
+      </div>
       <div className="map-container">
         <div
           className="map"
           style={{
             width: defaultData.width,
             height: defaultData.height,
-            transform: `translate(${defaultData.translateX}px, ${defaultData.translateY}px)`
+            transform: `translate(${defaultData.translateX}px, ${defaultData.translateY}px)`,
+            backgroundImage: `url(${mapImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
           }}
           onClick={clickMap}
         >
@@ -88,6 +102,8 @@ function App() {
         <button onClick={zoomIn}>放大</button>
         <button onClick={zoomOut}>缩小</button>
         <button onClick={zoomReset}>重置</button>
+        <br/>
+        <audio src="/media/Alla-Figaro.mp3" loop controls autoPlay={true} />
       </div>
       <div className="infos">
         {/* author info */}

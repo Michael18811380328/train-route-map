@@ -26,10 +26,13 @@
 
 .app .map-name {
   top: 0;
+  text-align: center;
 }
 
 .app .settings {
   bottom: 0;
+  right: 0;
+  left: unset;
 }
 
 .app .map {
