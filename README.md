@@ -18,8 +18,6 @@
 
 [技术背景](./docs/function.md)
 
-[产品效果](./docs/product-requirement.md)
-
 [技术细节](./docs/technical-detail.md)
 
 [更新日志](./docs/change-log.md)

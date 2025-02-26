@@ -18,8 +18,6 @@ If you like it, you can click on a star. If there are any issues, you can click 
 
 [Basic function](./docs/function.md)
 
-[Product requirement](./docs/product-requirement.md)
-
 [Technical detail](./docs/technical-detail.md)
 
 [Change log](./docs/change-log.md)
