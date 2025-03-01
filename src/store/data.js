@@ -8,7 +8,7 @@ const zoom = Number(cookie.load('map-zoom')) || 1;
 const basicData = {
   width: 6000 * zoom,
   height: 4690 * zoom,
-  initTime: 495,
+  initTime: 490,
   stations,
   trains,
   routes,

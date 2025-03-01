@@ -2,18 +2,24 @@ import { Train } from '../modals'
 import { stationMap } from './stations'
 
 export const trainsK = [
-  // 天津——蓟州
-  // new Train({
-  //   id: 'K2501',
-  //   train_number: 'K2501',
-  //   color: 'black',
-  //   times: [490, 510, 530],
-  //   stations: [
-  //     stationMap['02-003'],
-  //     stationMap['02-007'],
-  //     stationMap['02-006'],
-  //   ],
-  //   start: stationMap['02-003'],
-  //   end: stationMap['02-006'],
-  // }),
+  new Train({
+    id: 'K2501',
+    train_number: 'K2501',
+    color: 'black',
+    times: Array.from({ length: 10 }).map((_, i) => 490 + i * 5),
+    stations: [
+      stationMap['05-058'],
+      stationMap['05-059'],
+      stationMap['05-060'],
+      stationMap['05-061'],
+      stationMap['05-062'],
+      stationMap['05-063'],
+      stationMap['05-064'],
+      stationMap['05-065'],
+      stationMap['05-066'],
+      stationMap['05-067'],
+    ],
+    start: stationMap['05-058'],
+    end: stationMap['05-067'],
+  }),
 ]

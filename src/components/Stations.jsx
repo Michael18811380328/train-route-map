@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import cookie from 'react-cookies'
 import { useCallback } from 'react'
 
@@ -15,7 +16,6 @@ const StationList = ({ stations }) => {
   return (
     <>
       {stations.filter(station => {
-        // 如果缩放比例小于1，那么省略 size 小于2的站点，避免过于密集
         if (zoom <= 1) {
           return station.size >= 2
         }
@@ -43,5 +43,17 @@ const StationList = ({ stations }) => {
     </>
   )
 }
+
+StationList.propTypes = {
+  stations: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      x: PropTypes.number.isRequired,
+      y: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      size: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
 
 export default StationList

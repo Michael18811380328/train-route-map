@@ -10,4 +10,4 @@ class Train {
   }
 }
 
-export default Train
+export default Train;

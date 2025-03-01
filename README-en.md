@@ -1,5 +1,7 @@
 # train-route-map
 
+[中文说明](README.md)
+
 This is a train route map that includes cities, stations, train routes, and train information.
 
 - Support four large railway hubs in China: Beijing, Tianjin, Shijiazhuang, Jinan, including information on cities, stations, train, etc.
@@ -18,13 +20,8 @@ If you like it, you can click on a star. If there are any issues, you can click 
 
 [Basic function](./docs/function.md)
 
-[Product requirement](./docs/product-requirement.md)
-
 [Technical detail](./docs/technical-detail.md)
 
 [Change log](./docs/change-log.md)
 
-[中文说明](README.md)
-
 live demo：https://michael18811380328.github.io/demo/train-route-map/index.html
-

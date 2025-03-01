@@ -9,7 +9,15 @@ import mapImage from '/media/map.jpg';
 import './App.css'
 import './zIndex.css'
 
-const defaultData = haerbinData;
+const datas = [
+  beijingData,
+  tianjinData,
+  shijiazhuangData,
+  jinanData,
+  haerbinData
+];
+
+const defaultData = datas[4];
 
 function App() {
 
@@ -29,7 +37,7 @@ function App() {
         setTime(prevTime => (prevTime + 1));
       }, 1000);
     }
-  }, [time])
+  }, [timer, startMusic]);
   
   const stop = useCallback(() => {
     if (timer.current) {
@@ -41,7 +49,7 @@ function App() {
   const reset = useCallback(() => {
     stop();
     setTime(defaultData.initTime || 0);
-  }, []);
+  }, [stop]);
 
   const clickMap = useCallback((event) => {
     const rect = event.target.getBoundingClientRect();
@@ -72,7 +80,7 @@ function App() {
     <div className="app">
       <div className="map-name">
         <h2>{'火车路线模拟图'}</h2>
-        <p>{'版本: 0.4'}</p>
+        <p>{'版本: 1.0'}</p>
       </div>
       <div className="map-container">
         <div

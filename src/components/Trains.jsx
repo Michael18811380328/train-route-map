@@ -1,4 +1,5 @@
 import Train from './Train'
+import PropTypes from 'prop-types';
 
 const Trains = ({ time, trains }) => {
   return (
@@ -10,4 +11,9 @@ const Trains = ({ time, trains }) => {
   );
 };
 
-export default Trains
+Trains.propTypes = {
+  time: PropTypes.number.isRequired,
+  trains: PropTypes.array.isRequired,
+};
+
+export default Trains;

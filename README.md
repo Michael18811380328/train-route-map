@@ -1,5 +1,7 @@
 # 轨道交通图
 
+[English](./README-en.md)
+
 一个 React 实现的火车模拟路线图，展示东北、华北地区告诉铁路网运行图。
 
 - 支持多个大型铁路枢纽：北京、天津、石家庄、济南，哈尔滨，沈阳，包括城市，站点，车次等信息。
@@ -18,13 +20,8 @@
 
 [技术背景](./docs/function.md)
 
-[产品效果](./docs/product-requirement.md)
-
 [技术细节](./docs/technical-detail.md)
 
 [更新日志](./docs/change-log.md)
 
-[English](./README-en.md)
-
 在线演示：https://michael18811380328.github.io/demo/train-route-map/index.html
-

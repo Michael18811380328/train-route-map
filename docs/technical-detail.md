@@ -102,18 +102,14 @@ stations, routes, trains 每个渲染一个数组
 设置一个 state: time 动态变化，范围是0-24小时，每小时60分钟，那么 60 x 24 = 1440 分钟，设置一个循环计数器，每秒 time++
 
 ~~~js
-// init
 this.state = {
   time: 0,
 };
 
-// press start button
 this.timer = setTimeout(() => {
   this.setState({ time: this.state.time + 1 });
-  // TODO: time is 1440, reset to 0
 }, 1000);
 
-// press end button
 clearTimeout(this.timer);
 this.timer = null;
 ~~~
@@ -129,9 +125,7 @@ time++ 那么继续计算当前车次的位置，继续渲染
 动画效果，根据 车辆 x y 的变化，实现动画效果
 
 ~~~js
-// 初始化计算出全部车次的时间和位置：setState 可以直接读取，不需要再次计算
 Train() {
-  // calculate properties
   startTime: stations[0].time,
   endTime: stations[stations.length - 1].time,
 }
@@ -145,13 +139,11 @@ for (let t = startTime; t <= endTime; t++) {
     nextIndex++;
   }
   if (stations.length === preIndex) {
-    // 已经结束
     break;
   }
   if (t >= stations[preIndex].time && t < stations[nextIndex].time) {
     let { x1, y1 } = stations[preIndex];
     let { x2, y2 } = stations[nextIndex];
-    // 计算比例
     let x = x1 + (x2 - x1) / ((t - stations[preIndex].time) / (stations[nextIndex].time - stations[preIndex].time ));
     let y = y1 + (y2 - y1) / ((t - stations[preIndex].time) / (stations[nextIndex].time - stations[preIndex].time ));
     points[t] = {x, y};
@@ -173,7 +165,6 @@ renderTrains = (this.state.time) => {
 class Train extends React.Component {
 	const { train, time } = this.props;
 	const point = train.points[time];
-	// 当前节点不发车
 	if (!point) {
     return null;
   }

@@ -9,7 +9,7 @@ export const trainsG = [
     start: stationMap['01-021'],
     end: stationMap['01-042'],
     color: 'red',
-    times: Array.from({ length: 22 }).map((_, i) => 490 + i * 3),
+    times: Array.from({ length: 21 }).map((_, i) => 490 + i * 3),
     stations: [
       stationMap['01-021'],
       stationMap['01-028'],
@@ -19,7 +19,6 @@ export const trainsG = [
       stationMap['01-032'],
       stationMap['01-033'],
       stationMap['01-034'],
-      stationMap['01-035'],
       stationMap['01-036'],
       stationMap['01-037'],
       stationMap['01-038'],
@@ -41,7 +40,7 @@ export const trainsG = [
     start: stationMap['01-042'],
     end: stationMap['01-021'],
     color: 'red',
-    times: Array.from({ length: 22 }).map((_, i) => 493 + i * 3),
+    times: Array.from({ length: 21 }).map((_, i) => 493 + i * 3),
     stations: [
       stationMap['01-042'],
       stationMap['01-048'],
@@ -56,7 +55,6 @@ export const trainsG = [
       stationMap['01-038'],
       stationMap['01-037'],
       stationMap['01-036'],
-      stationMap['01-035'],
       stationMap['01-034'],
       stationMap['01-033'],
       stationMap['01-032'],
@@ -73,7 +71,7 @@ export const trainsG = [
     start: stationMap['01-021'],
     end: stationMap['01-042'],
     color: 'red',
-    times: Array.from({ length: 22 }).map((_, i) => 500 + i * 3),
+    times: Array.from({ length: 21 }).map((_, i) => 500 + i * 3),
     stations: [
       stationMap['01-021'],
       stationMap['01-028'],
@@ -83,7 +81,6 @@ export const trainsG = [
       stationMap['01-032'],
       stationMap['01-033'],
       stationMap['01-034'],
-      stationMap['01-035'],
       stationMap['01-036'],
       stationMap['01-037'],
       stationMap['01-038'],
@@ -105,7 +102,7 @@ export const trainsG = [
     start: stationMap['01-042'],
     end: stationMap['01-021'],
     color: 'red',
-    times: Array.from({ length: 22 }).map((_, i) => 503 + i * 3),
+    times: Array.from({ length: 21 }).map((_, i) => 503 + i * 3),
     stations: [
       stationMap['01-042'],
       stationMap['01-048'],
@@ -120,7 +117,6 @@ export const trainsG = [
       stationMap['01-038'],
       stationMap['01-037'],
       stationMap['01-036'],
-      stationMap['01-035'],
       stationMap['01-034'],
       stationMap['01-033'],
       stationMap['01-032'],
@@ -264,4 +260,3 @@ export const trainsG = [
     ],
   }),
 ]
-

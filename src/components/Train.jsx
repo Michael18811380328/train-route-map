@@ -1,7 +1,7 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 const Train = ({ train, time }) => {
-  const { id, train_number, start, end, color, times, stations, points } = train;
+  const { id, train_number, start, end, color, points } = train;
 
   if (!points) {
     return null;
@@ -12,8 +12,6 @@ const Train = ({ train, time }) => {
   if (!point) {
     return null;
   }
-  // todo：render station and times info
-  // next station is stations[x], next time is times[x]
 
   return (
     <div id={id} className="train" style={{ left: point.x, top: point.y, color }}>
@@ -21,6 +19,11 @@ const Train = ({ train, time }) => {
       <div>{start.name}-{end.name}</div>
     </div>
   );
+};
+
+Train.propTypes = {
+  train: PropTypes.object.isRequired,
+  time: PropTypes.number.isRequired,
 };
 
 export default Train;
