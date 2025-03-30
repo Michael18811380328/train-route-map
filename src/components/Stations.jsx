@@ -36,6 +36,7 @@ const StationList = ({ stations }) => {
               className="station-name"
               style={{ left: x - size * 2.5, top: y + size * 5, height: size * 5 }}
               title={id}
+              onClick={() => console.log(id)}
             >{name}</div>
           </React.Fragment>
         )

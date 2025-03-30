@@ -54,4 +54,23 @@ const calculateTrains = (trains) => {
   });
 }
 
-export { calculateStations, calculateRoutes, calculateTrains };
+const generateNext = (stationMap, routes) => {
+  for (let id in stationMap) {
+    stationMap[id].next = [];
+  }
+  routes.forEach(route => {
+    const { points } = route;
+    for (let i = 1; i < points.length; i++) {
+      const id1 = points[i - 1].id;
+      const id2 = points[i].id;
+      if (!stationMap[id1].next.includes(id2)) {
+        stationMap[id1].next.push(id2);
+      }
+      if (!stationMap[id2].next.includes(id1)) {
+        stationMap[id2].next.push(id1);
+      }
+    }
+  });
+}
+
+export { calculateStations, calculateRoutes, calculateTrains, generateNext };

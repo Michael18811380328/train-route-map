@@ -1,0 +1,17 @@
+.add-train-modal .add-train-row>select {
+  width: 100px;
+  display: inline;
+  margin-right: 8px;
+}
+
+.add-train-modal .add-train-row>input {
+  margin-right: 8px;
+}
+
+.add-train-modal .delete-train-row {
+  margin-bottom: 12px;
+}
+
+.add-train-modal .delete-train-row>* {
+  margin-right: 8px;
+}

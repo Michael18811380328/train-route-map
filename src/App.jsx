@@ -3,6 +3,7 @@ import cookie from 'react-cookies'
 import Stations from './components/Stations';
 import Routes from './components/Routes';
 import Trains from './components/Trains';
+import AddTrain from './components/Add-Train';
 import { beijingData, tianjinData, shijiazhuangData, jinanData, haerbinData } from './store/data';
 import mapImage from '/media/map.jpg';
 
@@ -17,7 +18,7 @@ const datas = [
   haerbinData
 ];
 
-const defaultData = datas[4];
+const defaultData = datas[0];
 
 function App() {
 
@@ -56,6 +57,7 @@ function App() {
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
     const clickPoint = `x: ${x}, y: ${y}`;
+    if (x < 100 && y < 100) return;
     console.log(clickPoint);
   }, []);
 
@@ -80,7 +82,7 @@ function App() {
     <div className="app">
       <div className="map-name">
         <h2>{'火车路线模拟图'}</h2>
-        <p>{'版本: 1.0'}</p>
+        <p>{'版本: 1.1'}</p>
       </div>
       <div className="map-container">
         <div
@@ -112,6 +114,7 @@ function App() {
         <button onClick={zoomReset}>重置</button>
         <br/>
         <audio src="/media/Alla-Figaro.mp3" loop controls autoPlay={true} />
+        <AddTrain />
       </div>
       <div className="infos">
         {/* author info */}
@@ -121,4 +124,3 @@ function App() {
 }
 
 export default App
-

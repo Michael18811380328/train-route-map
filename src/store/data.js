@@ -1,14 +1,15 @@
 import cookie from 'react-cookies'
-import { stations } from './stations';
+import { stations, stationMap } from './stations';
 import { trains } from './trains';
 import { routes } from './routes';
+import { generateNext } from '../utils';
 
 const zoom = Number(cookie.load('map-zoom')) || 1;
 
 const basicData = {
   width: 6000 * zoom,
   height: 4690 * zoom,
-  initTime: 490,
+  initTime: 480,
   stations,
   trains,
   routes,
@@ -49,4 +50,6 @@ const haerbinData = {
   translateY: -500,
 }
 
-export { beijingData, tianjinData, shijiazhuangData, jinanData, haerbinData };
+generateNext(stationMap, routes);
+
+export { beijingData, tianjinData, shijiazhuangData, jinanData, haerbinData, stationMap };
