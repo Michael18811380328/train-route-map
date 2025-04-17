@@ -26,9 +26,12 @@ function App() {
 
   let timer = useRef(null);
 
+  const backgroundAuditRef = useRef(null);
+
   const startMusic = useCallback(() => {
-    let audio = document.querySelector('audio');
-    audio.play();
+    if (backgroundAuditRef.current) {
+      backgroundAuditRef.current.play();
+    }
   }, []);
 
   const start = useCallback(() => {
@@ -82,7 +85,7 @@ function App() {
     <div className="app">
       <div className="map-name">
         <h2>{'火车路线模拟图'}</h2>
-        <p>{'版本: 1.1'}</p>
+        <p>{'版本: 1.2'}</p>
       </div>
       <div className="map-container">
         <div
@@ -113,7 +116,7 @@ function App() {
         <button onClick={zoomOut}>缩小</button>
         <button onClick={zoomReset}>重置</button>
         <br/>
-        <audio src="/media/Alla-Figaro.mp3" loop controls autoPlay={true} />
+        <audio ref={backgroundAuditRef} src="/media/Alla-Figaro.mp3" loop controls autoPlay={true} />
         <AddTrain />
       </div>
       <div className="infos">

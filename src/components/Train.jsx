@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 
 const Train = ({ train, time }) => {
-  const { id, train_number, start, end, color, points } = train;
+  const { id, train_number, start, end, color = 'black', points } = train;
 
-  if (!points) {
+  if (!Array.isArray(points) || points.length === 0) {
     return null;
   }
 
-  const point = points[time];
+  const point = (time >= 0 && time < points.length) ? points[time] : null;
 
   if (!point) {
     return null;
@@ -22,7 +22,23 @@ const Train = ({ train, time }) => {
 };
 
 Train.propTypes = {
-  train: PropTypes.object.isRequired,
+  train: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    train_number: PropTypes.string.isRequired,
+    start: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+    end: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+    color: PropTypes.string,
+    points: PropTypes.arrayOf(
+      PropTypes.shape({
+        x: PropTypes.number.isRequired,
+        y: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
   time: PropTypes.number.isRequired,
 };
 

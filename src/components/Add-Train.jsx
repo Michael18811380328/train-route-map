@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, InputGroup, FormGroup, Label, Form } from 'reactstrap';
+import React, { useState, useMemo } from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, FormGroup, Label } from 'reactstrap';
 import { stationMap } from '../store/data';
 import './Add-Train.css';
 
 const initStationsIds = [];
 for (let key in stationMap) {
-  if (stationMap[key].size > 2) {
+  if (stationMap[key] && stationMap[key].size > 2) {
     initStationsIds.push(key)
   }
 }
+
+/**
+ * AddTrain Component
+ * 
+ * This component provides a modal interface for adding a new train route.
+ * Users can specify the train number and add multiple stations with their respective times.
+ * 
+ * Features:
+ * - Dynamically add or remove stations.
+ * - Select stations from a predefined list based on the station map.
+ * - Save the train route data for further processing.
+ * 
+ * Usage:
+ * Import and include this component in your application to allow users to add train routes.
+ */
 
 const AddTrain = () => {
 
@@ -41,6 +56,7 @@ const AddTrain = () => {
   };
 
   const save = () => {
+    // Log the station data for debugging or manual verification purposes
     console.log('手动保存数据:', rows.map(item => item.station));
     // 目前可以手动把数据插入到 trains 中，未来支持数据库可以处理更多信息
     setRows([{ station: '', time: '' }]);
@@ -76,7 +92,7 @@ const AddTrain = () => {
           onChange={(e) => handleStationChange(index, e)}
         >
           <option value="">请选择车站</option>
-          {[...lastStation.next, lastStation.id].map((stationId) => (
+          {[...(Array.isArray(lastStation.next) ? lastStation.next : []), lastStation.id].map((stationId) => (
             <option key={stationId} value={stationId}>
               {stationMap[stationId].name}
             </option>
@@ -91,7 +107,7 @@ const AddTrain = () => {
       const { station, time } = row;
       return (
         <div className="delete-train-row" key={index}>
-          <span>{stationMap[station].name}</span>
+          <span>{stationMap[station] ? stationMap[station].name : '未知站点'}</span>
           <span>{time}</span>
           <Button size="sm" color="warning" onClick={() => handleDeleteRow(index)}>删除</Button>
         </div>
@@ -100,7 +116,7 @@ const AddTrain = () => {
       return (
         <div className="add-train-row" key={index}>
           {renderOptions(row, index)}
-          <input type="time" onChange={(e) => handleTimeChange(index, e)}></input>
+          <input type="time" value={row.time} onChange={(e) => handleTimeChange(index, e)}></input>
           <Button size="sm" color="primary" onClick={handleAddRow}>增加</Button>
         </div>
       );
@@ -119,12 +135,12 @@ const AddTrain = () => {
           </FormGroup>
           <FormGroup>
             <Label>途径站点</Label>
-            {rows.map((row, index) => renderRows(row, index))}
+            {useMemo(() => rows.map((row, index) => renderRows(row, index)), [rows])}
           </FormGroup>
         </ModalBody>
         <ModalFooter>
-          <Button color="secondary" onClick={toggle}>关闭</Button>
-          <Button color="primary" onClick={save}>保存</Button>
+          <Button color="secondary" onClick={toggle} title="关闭窗口">关闭</Button>
+          <Button color="primary" onClick={save} title="保存车次信息">保存</Button>
         </ModalFooter>
       </Modal>
     </div>
