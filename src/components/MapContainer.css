@@ -1,38 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.app {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
 .app .map-container {
   padding: 1500px 800px 0px 3900px;
-}
-
-.app .settings,
-.app .map-name {
-  z-index: 1;
-  background-color: #fff;
-  position: fixed;
-  left: calc(50% - 100px);
-  border: 1px solid #ccc;
-  padding: 10px 20px;
-}
-
-.app .map-name {
-  top: 0;
-  text-align: center;
-}
-
-.app .settings {
-  bottom: 0;
-  right: 0;
-  left: unset;
 }
 
 .app .map {

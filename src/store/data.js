@@ -43,7 +43,7 @@ const jinanData = {
   translateY: -600,
 }
 
-const haerbinData = {
+const harbinData = {
   ...basicData,
   name: '哈尔滨铁路枢纽',
   translateX: -3500,
@@ -52,4 +52,14 @@ const haerbinData = {
 
 generateNext(stationMap, routes);
 
-export { beijingData, tianjinData, shijiazhuangData, jinanData, haerbinData, stationMap };
+const datas = [
+  beijingData,
+  tianjinData,
+  shijiazhuangData,
+  jinanData,
+  harbinData
+];
+
+const defaultData = datas[0];
+
+export { basicData, beijingData, tianjinData, shijiazhuangData, jinanData, harbinData, stationMap, defaultData };

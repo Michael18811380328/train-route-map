@@ -6,7 +6,7 @@ import { stationMap } from './stations'
 let routesN = [
   new Route({
     id: 22,
-    name: '唐山-天津-保定铁路',
+    name: '津山铁路',
     color: 'black',
     line_number: 2,
     speed: 120,
@@ -21,7 +21,7 @@ let routesN = [
   }),
   new Route({
     id: 38,
-    name: '呼和浩特-黄骅铁路',
+    name: '神黄铁路',
     color: 'black',
     line_number: 2,
     speed: 80,
@@ -41,7 +41,7 @@ let routesN = [
   }),
   new Route({
     id: 40,
-    name: '神木-乌海铁路',
+    name: '包神铁路',
     color: 'black',
     line_number: 2,
     speed: 80,
@@ -55,7 +55,7 @@ let routesN = [
   }),
   new Route({
     id: 39,
-    name: '黑龙江1',
+    name: '齐北铁路',
     color: 'black',
     line_number: 1,
     speed: 80,
@@ -74,7 +74,7 @@ let routesN = [
   }),
   new Route({
     id: 41,
-    name: '黑龙江2',
+    name: '北黑铁路',
     color: 'black',
     line_number: 1,
     speed: 80,
@@ -87,7 +87,7 @@ let routesN = [
   }),
   new Route({
     id: 42,
-    name: '京九线',
+    name: '京九铁路',
     color: 'black',
     line_number: 2,
     speed: 120,
@@ -127,7 +127,7 @@ let routesD = [
   }),
   new Route({
     id: 25,
-    name: '长珲城际铁路',
+    name: '长珲城际',
     color: 'green',
     line_number: 3,
     speed: 250,
@@ -187,7 +187,7 @@ let routesD = [
   }),
   new Route({
     id: 42,
-    name: '徐州联络线',
+    name: '徐盐高铁',
     color: 'green',
     line_number: 2,
     speed: 250,
@@ -200,7 +200,7 @@ let routesD = [
   }),
   new Route({
     id: 39,
-    name: '沿海客专',
+    name: '青盐铁路',
     color: 'green',
     line_number: 2,
     speed: 200,
@@ -404,7 +404,7 @@ let routesG = [
   }),
   new Route({
     id: 30,
-    name: '津秦高速铁路',
+    name: '津秦高铁',
     color: 'red',
     line_number: 5,
     speed: 300,
@@ -419,7 +419,7 @@ let routesG = [
   }),
   new Route({
     id: 31,
-    name: '北京市内',
+    name: '北京环铁',
     color: 'red',
     line_number: 6,
     speed: 350,
@@ -432,7 +432,6 @@ let routesG = [
       stationMap['01-001'],
     ],
   }),
-  // 大西高铁
   new Route({
     id: 32,
     name: '大西高铁',
@@ -462,7 +461,7 @@ let routesG = [
   // 山东省
   new Route({
     id: 33,
-    name: '山东北部通道',
+    name: '德龙烟铁路',
     color: 'red',
     line_number: 2,
     speed: 300,
@@ -478,7 +477,7 @@ let routesG = [
   }),
   new Route({
     id: 34,
-    name: '山东南部通道',
+    name: '新石线',
     color: 'red',
     line_number: 2,
     speed: 300,
@@ -493,7 +492,7 @@ let routesG = [
   }),
   new Route({
     id: 35,
-    name: '山东中部通道',
+    name: '胶济客专',
     color: 'red',
     line_number: 2,
     speed: 300,
