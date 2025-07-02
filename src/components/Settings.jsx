@@ -1,4 +1,4 @@
-import { useRef, useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import cookie from 'react-cookies';
 import AddTrain from './Add-Train';
 
@@ -8,13 +8,6 @@ const Settings = ({
   stop,
   reset,
 }) => {
-  const backgroundAuditRef = useRef(null);
-
-  const startMusic = useCallback(() => {
-    if (backgroundAuditRef.current) {
-      backgroundAuditRef.current.play();
-    }
-  }, []);
 
   const zoomIn = useCallback(() => {
     let zoom = Number(cookie.load('map-zoom')) || 1;
@@ -36,7 +29,7 @@ const Settings = ({
   return (
     <div className="settings">
       <span>{`时间：${Math.floor(time / 60)}:${(time % 60).toString().padStart(2, '0')}`}</span>
-      <button onClick={() => { start(); startMusic(); }}>开始</button>
+      <button onClick={() => { start(); }}>开始</button>
       <button onClick={stop}>暂停</button>
       <button onClick={reset}>重置</button>
       <br/>
@@ -45,7 +38,7 @@ const Settings = ({
       <button onClick={zoomOut}>缩小</button>
       <button onClick={zoomReset}>重置</button>
       <br/>
-      <audio ref={backgroundAuditRef} src="/media/Alla-Figaro.mp3" loop controls autoPlay={true} />
+      <audio src="/media/Alla-Figaro.mp3" loop controls autoPlay={false} />
       <AddTrain />
     </div>
   );

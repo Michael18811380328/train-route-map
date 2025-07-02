@@ -13,7 +13,6 @@ function App() {
   let [time, setTime] = useState(defaultData.initTime || 0);
 
   let timer = useRef(null);
-  const backgroundAuditRef = useRef(null);
   
   // 从 package.json 中动态获取版本号
   useEffect(() => {
@@ -23,20 +22,13 @@ function App() {
       .catch(() => setVersion('1.0'));
   }, []);
 
-  const startMusic = useCallback(() => {
-    if (backgroundAuditRef.current) {
-      backgroundAuditRef.current.play();
-    }
-  }, []);
-
   const start = useCallback(() => {
-    startMusic();
     if (!timer.current) {
       timer.current = setInterval(() => {
         setTime(prevTime => (prevTime + 1));
       }, 1000);
     }
-  }, [timer, startMusic]);
+  }, [timer]);
   
   const stop = useCallback(() => {
     if (timer.current) {
@@ -56,7 +48,7 @@ function App() {
         <h2>{'火车路线模拟图'}</h2>
       </div>
       <div className="app-body">
-        <AppLeft />
+        <AppLeft defaultData={defaultData} />
         <div className="app-right">
           <MapContainer defaultData={defaultData} time={time} />
           <Settings time={time} start={start} stop={stop} reset={reset} />

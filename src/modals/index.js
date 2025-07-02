@@ -1,5 +1,5 @@
-import Station from './Station';
-import Train from './Train';
-import Route from './Route';
+import Station from './station';
+import Train from './train';
+import Route from './route';
 
 export { Station, Train, Route }

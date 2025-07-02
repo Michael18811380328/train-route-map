@@ -1,7 +1,5 @@
-import { basicData } from '../store/data';
-
-function AppLeft() {
-  const { stations, trains, routes } = basicData;
+function AppLeft({ defaultData }) {
+  const { stations, trains, routes } = defaultData;
   return (
     <div className="app-left">
       <details>

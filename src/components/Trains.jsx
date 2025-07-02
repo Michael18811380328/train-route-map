@@ -23,8 +23,6 @@ Trains.propTypes = {
   trains: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-      name: PropTypes.string.isRequired,
-      destination: PropTypes.string.isRequired,
     })
   ).isRequired,
 };
