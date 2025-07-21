@@ -41,6 +41,24 @@ function App() {
     stop();
     setTime(defaultData.initTime || 0);
   }, [stop]);
+  
+  const exportData = () => {
+    // TODO: 目前导出的是全局站点，未来支持导出其他类型数据
+    const dataStr = JSON.stringify(defaultData.stations, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'stations.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+  
+  // TODO：从本地上传 JSON 文件，并验证数据有效性，然后可以导入数据库，或者显示在界面上
+  // const importData = () => {
+  // }
 
   return (
     <div className="app">
@@ -51,7 +69,14 @@ function App() {
         <AppLeft defaultData={defaultData} />
         <div className="app-right">
           <MapContainer defaultData={defaultData} time={time} />
-          <Settings time={time} start={start} stop={stop} reset={reset} />
+          <Settings
+            time={time}
+            start={start}
+            stop={stop}
+            reset={reset}
+            // importData={importData}
+            exportData={exportData}
+          />
         </div>
       </div>
       <div className="app-footer">

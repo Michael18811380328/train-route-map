@@ -7,6 +7,8 @@ const Settings = ({
   start,
   stop,
   reset,
+  importData,
+  exportData,
 }) => {
 
   const zoomIn = useCallback(() => {
@@ -39,6 +41,9 @@ const Settings = ({
       <button onClick={zoomReset}>重置</button>
       <br/>
       <audio src="/media/Alla-Figaro.mp3" loop controls autoPlay={false} />
+      <br/>
+      <button onClick={exportData}>导出</button>
+      {/* <button onClick={importData}>导入</button> */}
       <AddTrain />
     </div>
   );
