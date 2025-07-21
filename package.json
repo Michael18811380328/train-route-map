@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cp package.json dist/",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
     "preview": "vite preview"
