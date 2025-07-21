@@ -14,8 +14,8 @@ let routesN = [
       stationMap['06-027'],
       stationMap['06-013'],
       stationMap['06-030'],
-      stationMap['01-051'],
-      stationMap['01-056'],
+      stationMap['02-001'],
+      stationMap['02-005'],
       stationMap['06-006'],
     ],
   }),
@@ -323,7 +323,7 @@ let routesG = [
     points: [
       stationMap['01-021'],
       stationMap['06-030'],
-      stationMap['01-052'],
+      stationMap['02-002'],
       stationMap['06-031'],
       stationMap['11-004'],
       stationMap['11-001'],
@@ -352,9 +352,9 @@ let routesG = [
     speed: 350,
     points: [
       stationMap['01-021'],
-      stationMap['01-050'],
-      stationMap['01-051'],
-      stationMap['01-054'],
+      stationMap['02-006'],
+      stationMap['02-001'],
+      stationMap['02-003'],
     ],
   }),
   new Route({
@@ -409,8 +409,8 @@ let routesG = [
     line_number: 5,
     speed: 300,
     points: [
-      stationMap['01-054'],
-      stationMap['01-055'],
+      stationMap['02-003'],
+      stationMap['02-004'],
       stationMap['06-006'],
       stationMap['06-010'],
       stationMap['06-011'],
