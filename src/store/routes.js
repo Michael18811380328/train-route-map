@@ -599,6 +599,43 @@ let routesG = [
       stationMap['07-003'],
     ],
   }),
+  // 陕西
+  new Route({
+    id: 44,
+    name: '包头西安高铁',
+    color: 'red',
+    line_number: 2,
+    speed: 350,
+    points: [
+      stationMap['07-003'],
+      stationMap['07-007'],
+      stationMap['14-008'],
+      stationMap['14-009'],
+      stationMap['14-010'],
+      stationMap['14-011'],
+      stationMap['14-012'],
+      stationMap['14-001'],
+    ],
+  }),
+  new Route({
+    id: 45,
+    name: '武西高铁',
+    color: 'red',
+    line_number: 2,
+    speed: 350,
+    points: [
+      stationMap['14-001'],
+      stationMap['14-013'],
+      stationMap['14-014'],
+      stationMap['16-002'],
+      stationMap['16-010'],
+      stationMap['16-008'],
+      stationMap['16-007'],
+      stationMap['16-006'],
+      stationMap['16-004'],
+      stationMap['16-001']
+    ],
+  }),
 ];
 
 let routes = [...routesN, ...routesD, ...routesG];

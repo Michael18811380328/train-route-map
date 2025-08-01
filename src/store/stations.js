@@ -163,7 +163,7 @@ stations.push(
   new Station({ id: '07-004', x: 4104, y: 1725.5, name: '兴和', size: 2 }),
   new Station({ id: '07-005', x: 3934, y: 1735.5, name: '卓资', size: 2 }),
   new Station({ id: '07-006', x: 3871, y: 1843.5, name: '准格尔', size: 2 }),
-  new Station({ id: '07-007', x: 3798, y: 1863.5, name: '鄂尔多斯', size: 2 }),
+  new Station({ id: '07-007', x: 3743, y: 1885, name: '鄂尔多斯', size: 2 }),
   new Station({ id: '07-008', x: 3519, y: 1778.5, name: '临河', size: 2 }),
   new Station({ id: '07-009', x: 3448, y: 1900.5, name: '乌海', size: 3 }),
 );
@@ -268,6 +268,13 @@ stations.push(
   new Station({ id: '14-006', x: 3749, y: 2547, name: '大荔', size: 2 }),
   // 神黄铁路
   new Station({ id: '14-007', x: 3871, y: 1943, name: '神木', size: 2 }),
+  new Station({ id: '14-008', x: 3746.5, y: 2057, name: '榆林', size: 3 }),
+  new Station({ id: '14-009', x: 3763.5, y: 2212, name: '绥德', size: 2 }),
+  new Station({ id: '14-010', x: 3706.5, y: 2303, name: '延安', size: 3 }),
+  new Station({ id: '14-011', x: 3719.5, y: 2415, name: '富县', size: 2 }),
+  new Station({ id: '14-012', x: 3677.5, y: 2522, name: '铜川', size: 2 }),
+  new Station({ id: '14-013', x: 3731.5, y: 2665, name: '商洛', size: 2 }),
+  new Station({ id: '14-014', x: 3819.5, y: 2723, name: '蓝田', size: 2 }),
 );
 
 // 江苏（15）
@@ -300,8 +307,14 @@ stations.push(
 
 // 湖北(16)
 stations.push(
-  new Station({ id: '16-003', x: 4080, y: 2860, name: '孝感', size: 2 }),
   new Station({ id: '16-001', x: 4082, y: 2965, name: '武汉', size: 4 }),
+  new Station({ id: '16-002', x: 3838, y: 2784, name: '十堰', size: 2 }),
+  new Station({ id: '16-003', x: 4080, y: 2860, name: '孝感', size: 2 }),
+  new Station({ id: '16-004', x: 4002, y: 2945, name: '云梦', size: 2 }),
+  new Station({ id: '16-006', x: 3989, y: 2895, name: '随州', size: 2 }),
+  new Station({ id: '16-007', x: 3958, y: 2872, name: '枣阳', size: 2 }),
+  new Station({ id: '16-008', x: 3927, y: 2849, name: '襄阳', size: 3 }),
+  new Station({ id: '16-010', x: 3866, y: 2803, name: '丹江口', size: 2 }),
 );
 
 // 上海(20)
