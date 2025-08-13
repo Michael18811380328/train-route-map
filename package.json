@@ -10,11 +10,16 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cp package.json dist/",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "publish": "npm run build"
   },
+  "files": [
+    "dist",
+    "package.json"
+  ],
   "dependencies": {
     "bootstrap": "^5.3.3",
     "prop-types": "^15.8.1",

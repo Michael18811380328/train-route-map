@@ -22,7 +22,10 @@ function App() {
     fetch('/package.json')
       .then(res => res.json())
       .then(pkg => setVersion(pkg.version))
-      .catch(() => setVersion('1.0'));
+      .catch((e) => {
+        console.log('获取版本号失败', e);
+        setVersion('1.0')
+      });
   }, []);
 
   // 移动端只支持预览，不显示设置栏，自动启动
