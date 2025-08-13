@@ -124,8 +124,8 @@ const AddTrain = () => {
   }
 
   return (
-    <div>
-      <Button color="primary" onClick={toggle}>增加车次</Button>
+    <>
+      <Button color="primary" onClick={toggle}>增加</Button>
       <Modal isOpen={modal} toggle={toggle} size="lg" className="add-train-modal">
         <ModalHeader toggle={toggle}>增加车次</ModalHeader>
         <ModalBody>
@@ -143,7 +143,7 @@ const AddTrain = () => {
           <Button color="primary" onClick={save} title="保存车次信息">保存</Button>
         </ModalFooter>
       </Modal>
-    </div>
+    </>
   );
 };
 

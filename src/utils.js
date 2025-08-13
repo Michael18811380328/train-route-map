@@ -73,4 +73,9 @@ const generateNext = (stationMap, routes) => {
   });
 }
 
+function isMobile() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 export { calculateStations, calculateRoutes, calculateTrains, generateNext };
+export { isMobile };

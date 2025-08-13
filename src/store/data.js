@@ -14,8 +14,8 @@ const defaultData = {
   trains,
   routes,
   name: '北京铁路枢纽',
-  translateX: -4000,
-  translateY: -1500,
+  translateX: 4200,
+  translateY: 1500,
 }
 
 generateNext(stationMap, routes);

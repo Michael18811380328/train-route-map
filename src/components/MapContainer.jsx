@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Stations from './Stations';
 import Routes from './Routes';
 import Trains from './Trains';
@@ -18,23 +18,20 @@ const MapContainer = ({ defaultData, time }) => {
   }, []);
 
   return (
-    <div className="map-container">
-      <div
-        className="map"
-        style={{
-          width: defaultData.width,
-          height: defaultData.height,
-          transform: `translate(${defaultData.translateX}px, ${defaultData.translateY}px)`,
-          backgroundImage: `url(${mapImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-        onClick={clickMap}
-      >
-        <Stations stations={defaultData.stations} />
-        <Routes routes={defaultData.routes} />
-        <Trains time={time} trains={defaultData.trains}/>
-      </div>
+    <div
+      className="map"
+      style={{ 
+        width: defaultData.width,
+        height: defaultData.height,
+        backgroundImage: `url(${mapImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+      onClick={clickMap}
+    >
+      <Stations stations={defaultData.stations} />
+      <Routes routes={defaultData.routes} />
+      <Trains time={time} trains={defaultData.trains}/>
     </div>
   );
 };

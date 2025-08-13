@@ -1,19 +1,22 @@
 import { useEffect, useState, useCallback, useRef } from 'react'
+import cookie from 'react-cookies';
 import { defaultData } from './store/data';
 import Settings from './components/Settings';
 import MapContainer from './components/MapContainer';
 import AppLeft from './components/App-left';
+import { isMobile } from './utils';
 
 import './css/App.css'
+import './css/App-mobile.css'
 import './css/zIndex.css'
 
 function App() {
-
   let [version, setVersion] = useState('');
   let [time, setTime] = useState(defaultData.initTime || 0);
 
   let timer = useRef(null);
-  
+  let appRightRef = useRef(null);
+
   // 从 package.json 中动态获取版本号
   useEffect(() => {
     fetch('/package.json')
@@ -22,6 +25,24 @@ function App() {
       .catch(() => setVersion('1.0'));
   }, []);
 
+  // 移动端只支持预览，不显示设置栏，自动启动
+  useEffect(() => {
+    if (isMobile()) {
+      start();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (appRightRef.current) {
+      let zoom = Number(cookie.load('map-zoom')) || 1;
+      appRightRef.current.scrollTo({
+        left: defaultData.translateX * zoom,
+        top: defaultData.translateY * zoom,
+        behavior: 'smooth'
+      });
+    }
+  }, [defaultData.translateX, defaultData.translateY]);
+
   const start = useCallback(() => {
     if (!timer.current) {
       timer.current = setInterval(() => {
@@ -29,7 +50,7 @@ function App() {
       }, 1000);
     }
   }, [timer]);
-  
+
   const stop = useCallback(() => {
     if (timer.current) {
       clearInterval(timer.current);
@@ -41,7 +62,7 @@ function App() {
     stop();
     setTime(defaultData.initTime || 0);
   }, [stop]);
-  
+
   const exportData = () => {
     // TODO: 目前导出的是全局站点，未来支持导出其他类型数据
     const dataStr = JSON.stringify(defaultData.stations, null, 2);
@@ -55,7 +76,7 @@ function App() {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   };
-  
+
   // TODO：从本地上传 JSON 文件，并验证数据有效性，然后可以导入数据库，或者显示在界面上
   // const importData = () => {
   // }
@@ -67,7 +88,10 @@ function App() {
       </div>
       <div className="app-body">
         <AppLeft defaultData={defaultData} />
-        <div className="app-right">
+        <div
+          className="app-right"
+          ref={appRightRef}
+        >
           <MapContainer defaultData={defaultData} time={time} />
           <Settings
             time={time}

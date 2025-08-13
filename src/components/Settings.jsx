@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import cookie from 'react-cookies';
+import { Button } from 'reactstrap';
 import AddTrain from './Add-Train';
 
 const Settings = ({
@@ -42,7 +43,7 @@ const Settings = ({
       <br/>
       <audio src="/media/Alla-Figaro.mp3" loop controls autoPlay={false} />
       <br/>
-      <button onClick={exportData}>导出</button>
+      <Button color="primary" onClick={exportData}>导出</Button>
       {/* <button onClick={importData}>导入</button> */}
       <AddTrain />
     </div>
