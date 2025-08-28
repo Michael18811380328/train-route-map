@@ -1,10 +1,10 @@
-import cookie from 'react-cookies'
+import Cookies from 'js-cookie';
 import { stations, stationMap } from './stations';
 import { trains } from './trains';
 import { routes } from './routes';
 import { generateNext } from '../utils';
 
-const zoom = Number(cookie.load('map-zoom')) || 1;
+const zoom = Number(Cookies.get('map-zoom')) || 1;
 
 const defaultData = {
   width: 6000 * zoom,

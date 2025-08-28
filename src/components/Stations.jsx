@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import cookie from 'react-cookies'
+import Cookies from 'js-cookie';
 import { useCallback } from 'react'
 
-const zoom = Number(cookie.load('map-zoom')) || 1;
+const zoom = Number(Cookies.get('map-zoom')) || 1;
 
 const StationList = ({ stations }) => {
 

@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from 'react'
-import cookie from 'react-cookies';
+import Cookies from 'js-cookie';
 import { defaultData } from './store/data';
 import Settings from './components/Settings';
 import MapContainer from './components/MapContainer';
@@ -37,7 +37,7 @@ function App() {
 
   useEffect(() => {
     if (appRightRef.current) {
-      let zoom = Number(cookie.load('map-zoom')) || 1;
+      let zoom = Number(Cookies.get('map-zoom')) || 1;
       appRightRef.current.scrollTo({
         left: defaultData.translateX * zoom,
         top: defaultData.translateY * zoom,
@@ -87,7 +87,7 @@ function App() {
   return (
     <div className="app">
       <div className="app-header">
-        <h2>{'火车路线模拟图'}</h2>
+        <h3>{'火车路线模拟图'}</h3>
       </div>
       <div className="app-body">
         <AppLeft defaultData={defaultData} />
@@ -107,7 +107,7 @@ function App() {
         </div>
       </div>
       <div className="app-footer">
-        <p>{`版本: ${version}`}</p>
+        {`版本: ${version}`}
       </div>
     </div>
   )

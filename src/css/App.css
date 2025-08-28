@@ -12,13 +12,13 @@
   justify-content: center;
 }
 
-.app-header h2 {
+.app-header h3 {
   margin: 0;
 }
 
 .app-body {
   display: flex;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 90px);
 }
 
 .app-left {
@@ -30,13 +30,14 @@
 }
 
 .app-right {
-  flex: 5;
+  flex: 9;
   background: #fff;
   overflow: scroll;
 }
 
 .app-footer {
-  height: 60px;
+  height: 30px;
+  line-height: 30px;
   background: #f5f5f5;
   border-top: 1px solid #e0e0e0;
   display: flex;
@@ -47,12 +48,17 @@
 
 .app .settings {
   z-index: 1;
+  font-size: 14px;
   background-color: #fff;
   position: fixed;
   left: calc(50% - 100px);
   border: 1px solid #ccc;
   padding: 10px 20px;
-  bottom: 60px;
+  bottom: 30px;
   right: 0;
   left: unset;
+}
+
+.app .settings button {
+  font-size: 14px;  
 }

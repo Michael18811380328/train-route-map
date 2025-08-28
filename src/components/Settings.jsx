@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import cookie from 'react-cookies';
+import Cookies from 'js-cookie';
 import { Button } from 'reactstrap';
 import AddTrain from './Add-Train';
 
@@ -13,19 +13,19 @@ const Settings = ({
 }) => {
 
   const zoomIn = useCallback(() => {
-    let zoom = Number(cookie.load('map-zoom')) || 1;
-    cookie.save('map-zoom', Math.min(zoom + 0.5, 5), { path: '/' });
+    let zoom = Number(Cookies.get('map-zoom')) || 1;
+    Cookies.set('map-zoom', Math.min(zoom + 0.5, 5), { path: '/' });
     window.location.reload();
   }, []);
 
   const zoomOut = useCallback(() => {
-    let zoom = Number(cookie.load('map-zoom')) || 1;
-    cookie.save('map-zoom', Math.max(zoom - 0.5, 1), { path: '/' });
+    let zoom = Number(Cookies.get('map-zoom')) || 1;
+    Cookies.set('map-zoom', Math.max(zoom - 0.5, 1), { path: '/' });
     window.location.reload();
   }, []);
 
   const zoomReset = useCallback(() => {
-    cookie.save('map-zoom', 1, { path: '/' });
+    Cookies.set('map-zoom', 1, { path: '/' });
     window.location.reload();
   }, []);
 
@@ -36,7 +36,7 @@ const Settings = ({
       <button onClick={stop}>暂停</button>
       <button onClick={reset}>重置</button>
       <br/>
-      <span>{`缩放：${Number(cookie.load('map-zoom')) || 1}`}</span>
+      <span>{`缩放：${Number(Cookies.get('map-zoom')) || 1}`}</span>
       <button onClick={zoomIn}>放大</button>
       <button onClick={zoomOut}>缩小</button>
       <button onClick={zoomReset}>重置</button>

@@ -1,8 +1,8 @@
-import cookie from 'react-cookies'
+import Cookies from 'js-cookie';
 import { Station } from '../modals'
 import { calculateStations } from '../utils'
 
-const zoom = Number(cookie.load('map-zoom')) || 1;
+const zoom = Number(Cookies.get('map-zoom')) || 1;
 
 let stations = [];
 
