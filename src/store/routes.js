@@ -521,7 +521,7 @@ let routesG = [
   // 
   new Route({
     id: 37,
-    name: '徐兰高铁',
+    name: '徐州-兰州-新疆高铁',
     color: 'red',
     line_number: 4,
     speed: 320,
@@ -544,6 +544,14 @@ let routesG = [
       stationMap['14-001'],
       stationMap['14-004'],
       stationMap['14-005'],
+      stationMap['17-006'],
+      stationMap['17-007'],
+      stationMap['17-001'],
+      stationMap['17-008'],
+      stationMap['17-005'],
+      stationMap['17-003'],
+      stationMap['17-009'],
+      stationMap['17-002'],
     ],
   }),
   // 宁启高铁
@@ -587,7 +595,6 @@ let routesG = [
     line_number: 2,
     speed: 350,
     points: [
-      stationMap['01-022'],
       stationMap['01-024'],
       stationMap['01-025'],
       stationMap['06-050'],
