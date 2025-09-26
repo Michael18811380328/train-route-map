@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import Cookies from 'js-cookie';
 import { Button } from 'reactstrap';
 import AddTrain from './Add-Train';
+import AddStation from './Add-Station';
 
 const Settings = ({
   time,
@@ -46,6 +47,7 @@ const Settings = ({
       <Button color="primary" onClick={exportData}>导出</Button>
       {/* <button onClick={importData}>导入</button> */}
       <AddTrain />
+      <AddStation />
     </div>
   );
 };

@@ -12,9 +12,8 @@ const MapContainer = ({ defaultData, time }) => {
     const rect = event.target.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
-    const clickPoint = `x: ${x}, y: ${y}`;
     if (x < 100 && y < 100) return;
-    console.log(clickPoint);
+    window.emitter.emit('clickMap', { x, y });
   }, []);
 
   return (

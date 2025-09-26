@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback, useRef } from 'react'
 import Cookies from 'js-cookie';
+import mitt from 'mitt';
 import { defaultData } from './store/data';
 import Settings from './components/Settings';
 import MapContainer from './components/MapContainer';
@@ -16,6 +17,13 @@ function App() {
 
   let timer = useRef(null);
   let appRightRef = useRef(null);
+  
+  useEffect(() => {
+    window.emitter = mitt();
+    return () => {
+      window.emitter = null;
+    }
+  }, []);
 
   // 从 package.json 中动态获取版本号
   useEffect(() => {

@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, FormGroup, Label } from 'reactstrap';
 import { stationMap } from '../store/data';
+
 import './Add-Train.css';
 
 const initStationsIds = [];
@@ -9,21 +10,6 @@ for (let key in stationMap) {
     initStationsIds.push(key)
   }
 }
-
-/**
- * AddTrain Component
- * 
- * This component provides a modal interface for adding a new train route.
- * Users can specify the train number and add multiple stations with their respective times.
- * 
- * Features:
- * - Dynamically add or remove stations.
- * - Select stations from a predefined list based on the station map.
- * - Save the train route data for further processing.
- * 
- * Usage:
- * Import and include this component in your application to allow users to add train routes.
- */
 
 const AddTrain = () => {
 
@@ -57,7 +43,7 @@ const AddTrain = () => {
 
   const save = () => {
     // Log the station data for debugging or manual verification purposes
-    console.log('手动保存数据:', rows.map(item => item.station));
+    console.log('手动保存数据:', rows.map(item => item.station), rows.map(item => item.time));
     // 目前可以手动把数据插入到 trains 中，未来支持数据库可以处理更多信息
     setRows([{ station: '', time: '' }]);
     toggle();
@@ -83,6 +69,7 @@ const AddTrain = () => {
       );
     } else {
       const lastStation = stationMap[rows[index - 1].station];
+      // TODO：lastStation
       return (
         <Input
           type="select"
