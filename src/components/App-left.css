@@ -1,3 +1,12 @@
 .app-left li {
   cursor: pointer;
 }
+
+.app-left .toggle-all-btn {
+  padding: 2px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+}
