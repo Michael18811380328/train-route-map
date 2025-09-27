@@ -2,52 +2,11 @@ import { Train } from '../../modals'
 import { stationMap } from '../stations'
 
 export const trainsK = [
-  // 山海关-沈阳
-  new Train({
-    id: 'K5001',
-    train_number: 'K5001',
-    color: 'black',
-    times: Array.from({ length: 10 }).map((_, i) => 490 + i * 5),
-    stations: [
-      stationMap['05-058'],
-      stationMap['05-059'],
-      stationMap['05-060'],
-      stationMap['05-061'],
-      stationMap['05-062'],
-      stationMap['05-063'],
-      stationMap['05-064'],
-      stationMap['05-065'],
-      stationMap['05-066'],
-      stationMap['05-014'],
-    ],
-    start: stationMap['05-058'],
-    end: stationMap['05-014'],
-  }),
-  // 沈阳-山海关
-  new Train({
-    id: 'K5002',
-    train_number: 'K5002',
-    color: 'black',
-    times: Array.from({ length: 10 }).map((_, i) => 490 + i * 5),
-    stations: [
-      stationMap['05-014'],
-      stationMap['05-066'],
-      stationMap['05-065'],
-      stationMap['05-064'],
-      stationMap['05-063'],
-      stationMap['05-062'],
-      stationMap['05-061'],
-      stationMap['05-060'],
-      stationMap['05-059'],
-      stationMap['05-058'],
-    ],
-    start: stationMap['05-014'],
-    end: stationMap['05-058'],
-  }),
+  // 跨省线路
   // 连云港-宝鸡
   new Train({
-    id: 'K152',
-    train_number: 'K152',
+    id: 'K101',
+    train_number: 'K101',
     color: 'black',
     times: Array.from({ length: 18 }).map((_, i) => 490 + i * 5),
     stations: [
@@ -75,8 +34,8 @@ export const trainsK = [
   }),
   // 宝鸡-连云港
   new Train({
-    id: 'K151',
-    train_number: 'K151',
+    id: 'K102',
+    train_number: 'K102',
     color: 'black',
     times: Array.from({ length: 18 }).map((_, i) => 490 + i * 5),
     stations: [
@@ -104,8 +63,8 @@ export const trainsK = [
   }),
   // 太原-上海
   new Train({
-    id: 'K372',
-    train_number: 'K372',
+    id: 'K103',
+    train_number: 'K103',
     color: 'black',
     times: Array.from({ length: 23 }).map((_, i) => 480 + i * 5),
     stations: [
@@ -138,8 +97,8 @@ export const trainsK = [
   }),
   // 上海-太原
   new Train({
-    id: 'K373',
-    train_number: 'K373',
+    id: 'K104',
+    train_number: 'K104',
     color: 'black',
     times: Array.from({ length: 23 }).map((_, i) => 480 + i * 5),
     stations: [
@@ -169,5 +128,48 @@ export const trainsK = [
     ],
     start: stationMap['20-001'],
     end: stationMap['10-003'],
+  }),
+  // 省内线路
+  // 山海关-沈阳
+  new Train({
+    id: 'K1001',
+    train_number: 'K1001',
+    color: 'black',
+    times: Array.from({ length: 10 }).map((_, i) => 490 + i * 5),
+    stations: [
+      stationMap['05-058'],
+      stationMap['05-059'],
+      stationMap['05-060'],
+      stationMap['05-061'],
+      stationMap['05-062'],
+      stationMap['05-063'],
+      stationMap['05-064'],
+      stationMap['05-065'],
+      stationMap['05-066'],
+      stationMap['05-014'],
+    ],
+    start: stationMap['05-058'],
+    end: stationMap['05-014'],
+  }),
+  // 沈阳-山海关
+  new Train({
+    id: 'K1002',
+    train_number: 'K1002',
+    color: 'black',
+    times: Array.from({ length: 10 }).map((_, i) => 490 + i * 5),
+    stations: [
+      stationMap['05-014'],
+      stationMap['05-066'],
+      stationMap['05-065'],
+      stationMap['05-064'],
+      stationMap['05-063'],
+      stationMap['05-062'],
+      stationMap['05-061'],
+      stationMap['05-060'],
+      stationMap['05-059'],
+      stationMap['05-058'],
+    ],
+    start: stationMap['05-014'],
+    end: stationMap['05-058'],
   }),
 ];

@@ -43,7 +43,7 @@ const AddTrain = () => {
 
   const save = () => {
     // Log the station data for debugging or manual verification purposes
-    console.log('手动保存数据:', rows.map(item => item.station), rows.map(item => item.time));
+    console.log('stations: ', rows.map(item => item.station), ' times: ', rows.map(item => item.time));
     // 目前可以手动把数据插入到 trains 中，未来支持数据库可以处理更多信息
     setRows([{ station: '', time: '' }]);
     toggle();
@@ -70,6 +70,9 @@ const AddTrain = () => {
     } else {
       const lastStation = stationMap[rows[index - 1].station];
       // TODO：lastStation
+      if (!lastStation) {
+        return null;
+      }
       return (
         <Input
           type="select"
@@ -112,7 +115,7 @@ const AddTrain = () => {
 
   return (
     <>
-      <Button color="primary" onClick={toggle}>增加</Button>
+      <Button color="primary" onClick={toggle}>增加车次</Button>
       <Modal isOpen={modal} toggle={toggle} size="lg" className="add-train-modal">
         <ModalHeader toggle={toggle}>增加车次</ModalHeader>
         <ModalBody>

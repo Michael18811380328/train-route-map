@@ -3,7 +3,7 @@ import { stationMap } from '../stations'
 
 const trainsC = []
 
-for (let indent = 0; indent < 10; indent++) {
+for (let indent = 0; indent < 5; indent++) {
   trainsC.push(
     // 北京南——滨海
     new Train({

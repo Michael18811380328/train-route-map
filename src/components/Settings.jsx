@@ -46,6 +46,7 @@ const Settings = ({
       <br/>
       <Button color="primary" onClick={exportData}>导出</Button>
       {/* <button onClick={importData}>导入</button> */}
+      <br/>
       <AddTrain />
       <AddStation />
     </div>
