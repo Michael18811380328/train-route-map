@@ -36,7 +36,7 @@ for (let indent = 0; indent < 5; indent++) {
         stationMap['02-001'],
         stationMap['06-030'],
         stationMap['06-013'],
-        stationMap['06-012'],``
+        stationMap['06-012'],
       ],
     }),
     // 沈阳南-大连
