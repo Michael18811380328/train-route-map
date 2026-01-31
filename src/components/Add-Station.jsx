@@ -46,7 +46,7 @@ const AddStation = () => {
 
   return (
     <>
-      <Button color="primary" onClick={handleAddStation}>增加站点</Button>
+      <Button color="primary" onClick={handleAddStation} style={{ marginLeft: '10px' }}>增加站点</Button>
       <Modal isOpen={modal} toggle={() => setModal(false)}>
         <ModalHeader toggle={() => setModal(false)}>增加站点</ModalHeader>
         <ModalBody>

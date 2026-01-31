@@ -5,6 +5,7 @@ import { stationMap } from '../store/data';
 import './Add-Train.css';
 
 const initStationsIds = [];
+
 for (let key in stationMap) {
   if (stationMap[key] && stationMap[key].size > 2) {
     initStationsIds.push(key)
@@ -15,9 +16,14 @@ const AddTrain = () => {
 
   const [modal, setModal] = useState(false);
 
-  const [rows, setRows] = useState([{ station: '', time: '' }]);
+  const [rows, setRows] = useState([{ station: '', time: '08:00' }]);
 
-  const toggle = () => setModal(!modal);
+  const toggle = () => {
+    setModal(!modal);
+    if (!modal) {
+      setRows([{ station: '', time: '08:00' }]);
+    }
+  };
 
   const handleDeleteRow = (index) => {
     const newRows = [...rows];
@@ -103,10 +109,12 @@ const AddTrain = () => {
         </div>
       )
     } else {
+      // 08:00 is default start time
+      const lastTime = rows[index - 1]?.time || '08:00';
       return (
         <div className="add-train-row" key={index}>
           {renderOptions(row, index)}
-          <input type="time" value={row.time} onChange={(e) => handleTimeChange(index, e)}></input>
+          <input type="time" value={row.time || lastTime} onChange={(e) => handleTimeChange(index, e)}></input>
           <Button size="sm" color="primary" onClick={handleAddRow}>增加</Button>
         </div>
       );
@@ -115,7 +123,7 @@ const AddTrain = () => {
 
   return (
     <>
-      <Button color="primary" onClick={toggle}>增加车次</Button>
+      <Button color="primary" onClick={toggle} style={{ marginLeft: '10px' }}>增加车次</Button>
       <Modal isOpen={modal} toggle={toggle} size="lg" className="add-train-modal">
         <ModalHeader toggle={toggle}>增加车次</ModalHeader>
         <ModalBody>

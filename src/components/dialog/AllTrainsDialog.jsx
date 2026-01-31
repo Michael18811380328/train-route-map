@@ -59,7 +59,7 @@ const AllTrainsDialog = ({ isOpen, toggle, trains }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} toggle={toggle} size="lg">
+    <Modal isOpen={isOpen} toggle={toggle} style={{ maxWidth: 'calc(100% - 100px)' }}>
       <ModalHeader toggle={toggle}>全部车次信息</ModalHeader>
       <ModalBody>
 
@@ -118,34 +118,36 @@ const AllTrainsDialog = ({ isOpen, toggle, trains }) => {
           </FormGroup>
         </div>
 
-        <Table bordered size="sm">
-          <thead>
-            <tr>
-              <th>编号</th>
-              <th>起点</th>
-              <th>终点</th>
-              <th>开车</th>
-              <th>到达</th>
-              <th>运行(分钟)</th>
-              <th>站点数</th>
-              <th style={{ width: '300px' }}>途径站点</th>
-            </tr>
-          </thead>
-          <tbody>
-            {renderedTrains.map((train, index) => (
-              <tr key={index}>
-                <td>{train.train_number}</td>
-                <td>{train.start.name}</td>
-                <td>{train.end.name}</td>
-                <td>{formatTime(train.startTime)}</td>
-                <td>{formatTime(train.endTime)}</td>
-                <td>{(train.endTime - train.startTime)}</td>
-                <td>{train.stations.length}</td>
-                <td>{train.stations.map(station => station.name).join('——')}</td>
+        <div style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto', border: '1px solid #dee2e6', borderRadius: '0.375rem' }}>
+          <Table bordered size="sm" style={{ marginBottom: 0 }}>
+            <thead style={{ position: 'sticky', top: 0, backgroundColor: 'white', zIndex: 1 }}>
+              <tr>
+                <th style={{ width: '100px' }}>编号</th>
+                <th style={{ width: '150px' }}>起点</th>
+                <th style={{ width: '150px' }}>终点</th>
+                <th style={{ width: '100px' }}>开车</th>
+                <th style={{ width: '100px' }}>到达</th>
+                <th style={{ width: '100px' }}>运行</th>
+                <th style={{ width: '100px' }}>站点数</th>
+                <th>途径站点</th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody>
+              {renderedTrains.map((train, index) => (
+                <tr key={index}>
+                  <td>{train.train_number}</td>
+                  <td>{train.start.name}</td>
+                  <td>{train.end.name}</td>
+                  <td>{formatTime(train.startTime)}</td>
+                  <td>{formatTime(train.endTime)}</td>
+                  <td>{(train.endTime - train.startTime)}</td>
+                  <td>{train.stations.length}</td>
+                  <td>{train.stations.map(station => station.name).join('——')}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
         
         {renderedTrains.length === 0 && (
           <div className="text-center text-muted">没有符合条件的车次</div>

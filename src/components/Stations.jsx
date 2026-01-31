@@ -1,49 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import Cookies from 'js-cookie';
-import { useCallback } from 'react'
+import Station from './Station';
 
 const zoom = Number(Cookies.get('map-zoom')) || 1;
 
 const StationList = ({ stations }) => {
-
-  const clickStation = useCallback((event, station) => {
-    event.preventDefault();
-    event.stopPropagation();
-    console.log("Click station:", station);
-  }, []);
-
   return (
     <>
-      {stations.filter(station => {
-        if (zoom <= 1) {
-          return station.size >= 2
-        }
-        return true;        
-      }).map(station => {
-        const { id, x, y, name, size } = station;        
-        return (
-          <React.Fragment key={id}>
-            <div
-              key={"station-" + id}
-              className="station"
-              onClick={(e) => clickStation(e, station)}
-              style={{ left: x - size * 2.5, top: y - size * 2.5, width: size * 5, height: size * 5 }}
-              title={`x: ${x}, y: ${y}`}
-            ></div>
-            <div
-              key={"station-name-" + id}
-              className="station-name"
-              style={{ left: x - size * 2.5, top: y + size * 5, height: size * 5 }}
-              title={id}
-              onClick={() => console.log(id)}
-            >{name}</div>
-          </React.Fragment>
-        )
-      })}
+      {stations
+        .filter(station => {
+          if (zoom <= 1) {
+            return station.size >= 2;
+          }
+          return true;
+        })
+        .map(station => (
+          <Station 
+            key={station.id} 
+            station={station} 
+          />
+        ))
+      }
     </>
-  )
-}
+  );
+};
 
 StationList.propTypes = {
   stations: PropTypes.arrayOf(
@@ -57,4 +38,4 @@ StationList.propTypes = {
   ).isRequired,
 };
 
-export default StationList
+export default React.memo(StationList);

@@ -1,4 +1,5 @@
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
+import { stationMap } from '../../store/stations';
 
 function StationDialog({ isOpen, toggle, station }) {
   return (
@@ -11,6 +12,7 @@ function StationDialog({ isOpen, toggle, station }) {
           <p>ID: {station.id}</p>
           <p>坐标: ({station.x}, {station.y})</p>
           <p>等级: {station.size}</p>
+          <p>相邻站点: {station.next.map(id => stationMap[id].name).join(', ')}</p>
         </div>
       </ModalBody>
       <ModalFooter>

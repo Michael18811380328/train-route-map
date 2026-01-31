@@ -44,11 +44,10 @@ const Settings = ({
       <br/>
       <audio src="/media/Alla-Figaro.mp3" loop controls autoPlay={false} />
       <br/>
-      <Button color="primary" onClick={exportData}>导出</Button>
       {/* <button onClick={importData}>导入</button> */}
-      <br/>
       <AddTrain />
       <AddStation />
+      <Button color="primary" onClick={exportData} style={{ marginLeft: '10px' }}>导出数据</Button>
     </div>
   );
 };

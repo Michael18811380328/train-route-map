@@ -44,7 +44,7 @@ const AllStationsDialog = ({ isOpen, toggle, stations, trains }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} toggle={toggle} size="lg">
+    <Modal isOpen={isOpen} toggle={toggle} style={{ maxWidth: 'calc(100% - 100px)' }}>
       <ModalHeader toggle={toggle}>全部车站信息</ModalHeader>
       <ModalBody>
         <div className="mb-3">
@@ -66,24 +66,26 @@ const AllStationsDialog = ({ isOpen, toggle, stations, trains }) => {
           )}
         </div>
 
-        <Table bordered size="sm">
-          <thead>
-            <tr>
-              <th>编号</th>
-              <th>名称</th>
-              <th style={{width: '500px'}}>车次</th>
-            </tr>
-          </thead>
-          <tbody>
-            {renderedStations.map((station, index) => (
-              <tr key={station.id || index}>
-                <td>{station.id}</td>
-                <td>{station.name}</td>
-                <td>{stationTrainsMap[station.id] || ''}</td>
+        <div style={{ maxHeight: 'calc(100vh - 400px)', overflowY: 'auto', border: '1px solid #dee2e6', borderRadius: '0.375rem' }}>
+          <Table bordered size="sm" style={{ marginBottom: 0 }}>
+            <thead style={{ position: 'sticky', top: 0, backgroundColor: 'white', zIndex: 1 }}>
+              <tr>
+                <th style={{width: '150px'}}>编号</th>
+                <th style={{width: '150px'}}>名称</th>
+                <th>车次</th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody>
+              {renderedStations.map((station, index) => (
+                <tr key={station.id || index}>
+                  <td>{station.id}</td>
+                  <td>{station.name}</td>
+                  <td>{stationTrainsMap[station.id] || ''}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
         
         {(!stations || stations.length === 0) && (
           <div className="text-center text-muted">暂无车站数据</div>
