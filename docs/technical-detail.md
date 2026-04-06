@@ -191,4 +191,3 @@ class Train extends React.Component {
   transition: top 1s, left 1s;
 }
 ~~~
-
